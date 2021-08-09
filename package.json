@@ -1,0 +1,19 @@
+{
+  "name": "ihome-services-backend",
+  "version": "1.0.0",
+  "description": "O iHomeServices é uma aplicativo que auxilia uma pessoa qualquer a encontrar um profissional especializado em algum determinado serviço doméstico, como por exemplo pedreiro, pintor, manicure etc. O usuário que deseja fazer algum tipo de reparo em sua residência e não conhece um profissional com a devida competência e habilidade pode acessar nosso aplicativo para encontrá-lo/a.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iHomeServices/ihome-services-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iHomeServices/ihome-services-backend/issues"
+  },
+  "homepage": "https://github.com/iHomeServices/ihome-services-backend#readme"
+}

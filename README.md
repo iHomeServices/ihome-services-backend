@@ -1,1 +1,1 @@
-# ihome-services-backend
+O iHomeServices é uma aplicativo que auxilia uma pessoa qualquer a encontrar um profissional especializado em algum determinado serviço doméstico, como por exemplo pedreiro, pintor, eletricista etc. O usuário que deseja fazer algum tipo de reparo em sua residência e não conhece um profissional com a devida competência e habilidade pode acessar nosso aplicativo para encontrá-lo/a.
