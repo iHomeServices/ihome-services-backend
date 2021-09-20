@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/iHomeServices/ihome-services-backend/issues"
   },
-  "homepage": "https://github.com/iHomeServices/ihome-services-backend#readme"
+  "homepage": "https://github.com/iHomeServices/ihome-services-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
