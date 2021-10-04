@@ -1,9 +1,8 @@
 const providerRepository = require('../repository/providerRepository');
-const populateDatabase = require('../repository/populateDatabase');
 
 async function getProviders() {
-    // const providers = providerRepository.getProviders();
-    populateDatabase.populate();
+    const providers = await providerRepository.getProviders();
+    return providers;
 }
 
 module.exports = {
