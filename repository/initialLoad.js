@@ -9,6 +9,7 @@ const populateDatabase = async () => {
 
     const providers = [
         {
+            id: 1,
             name: "Caetano Veloso",
             city: "Salvador",
             phoneNumber: 16999112233,
@@ -16,6 +17,7 @@ const populateDatabase = async () => {
             services: [1, 2]
         },
         {
+            id: 2,
             name: "Milton Nascimento",
             city: "Santos",
             phoneNumber: 16999112233,
@@ -23,6 +25,7 @@ const populateDatabase = async () => {
             services: [3]
         },
         {
+            id: 3,
             name: "Michael Jackson",
             city: "Araraquara",
             phoneNumber: 16999112233,

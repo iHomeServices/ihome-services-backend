@@ -5,6 +5,12 @@ async function getProviders() {
     return providers;
 }
 
+async function getProviderById(id) {
+    const provider = await providerRepository.getProviderById(id);
+    return provider;
+}
+
 module.exports = {
-    getProviders
+    getProviders,
+    getProviderById
 }

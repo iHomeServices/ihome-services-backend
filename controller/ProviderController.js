@@ -7,4 +7,9 @@ providerRouter.get('/', async (req, res) => {
     res.send(providers);
 });
 
+providerRouter.get('/:id', async (req, res) => {
+    const provider = await providerService.getProviderById(req.params.id);
+    res.send(provider);
+})
+
 module.exports = providerRouter;

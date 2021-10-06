@@ -1,4 +1,5 @@
 var express = require('express');
+const categoryRouter = require('./controller/categoryController');
 const customerRouter = require('./controller/customerController');
 var router = express.Router()
 var providerRouter = require('./controller/ProviderController');
@@ -16,5 +17,6 @@ router.get('/initial-load', async (req, res) => {
 
 router.use('/provider', providerRouter);
 router.use('/customer', customerRouter);
+router.use('/category', categoryRouter);
 
 module.exports = router
