@@ -58,26 +58,30 @@ const populateDatabase = async () => {
     const categories = [
         {
             id: 1,
-            name: "Eletricista"
-        },
+            name: 'Eletricista',
+            icon: 'flash'
+        }, 
         {
             id: 2,
-            name: "Pintor"
-        },
+            name: 'Pedreiro',
+            icon: 'home'
+        }, 
         {
             id: 3,
-            name: "Jardineiro"
-        },
+            name: 'Piscineiro',
+            icon: 'pool'
+        }, 
         {
             id: 4,
-            name: "Pedreiro"
-        },
+            name: 'Pintor',
+            icon: 'format-paint'
+        }, 
         {
             id: 5,
-            name: "Piscineiro"
-        },
-
-    ]
+            name: 'Jardineiro',
+            icon: 'leaf'
+        }
+    ];
     
     const services = [
         {
