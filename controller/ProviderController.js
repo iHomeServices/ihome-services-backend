@@ -12,4 +12,11 @@ providerRouter.get('/:id', async (req, res) => {
     res.send(provider);
 })
 
+providerRouter.post('/service', async (req, res) => {
+    const { service } = req.body;
+    const result = providerService.createService(service);
+    console.log(result);
+    res.redirect('/');
+})
+
 module.exports = providerRouter;

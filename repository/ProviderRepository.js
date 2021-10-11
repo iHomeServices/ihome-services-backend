@@ -26,7 +26,14 @@ const getProviderById = async (id) => {
     }
 }
 
+const createService = async (service) => {
+    await mongoClient.connect();
+    const result = await mongoClient.db().collection("service").insertOne(service);
+    return result;
+}
+
 module.exports = {
     getProviders,
-    getProviderById
+    getProviderById,
+    createService
 }

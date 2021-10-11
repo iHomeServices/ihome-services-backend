@@ -10,7 +10,13 @@ async function getProviderById(id) {
     return provider;
 }
 
+async function createService(service) {
+    const result = providerRepository.createService(service);
+    return result;
+}
+
 module.exports = {
     getProviders,
-    getProviderById
+    getProviderById,
+    createService
 }
