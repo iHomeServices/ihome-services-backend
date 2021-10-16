@@ -9,11 +9,11 @@ const getProviders = async () => {
 
 const getProviderById = async (id) => {
     await mongoClient.connect();
-    const provider = await mongoClient.db().collection("provider").findOne({ id: Number(id) });
+    const provider = await mongoClient.db().collection("provider").findOne({ _id: Number(id) });
 
     if (provider) {
         const services = provider.services.map(service => Number(service));
-        const ratings = await mongoClient.db().collection("service").find({ id: { $in: services } }).toArray();
+        const ratings = await mongoClient.db().collection("service").find({ _id: { $in: services } }).toArray();
 
         const fullProvider = {
             ...provider,
@@ -32,8 +32,15 @@ const createService = async (service) => {
     return result;
 }
 
+const editProvider = async (provider) => {
+    await mongoClient.connect();
+    const result = await mongoClient.db().collection("provider").updateOne({ _id: Number(provider.id) }, provider);
+    return result;
+}
+
 module.exports = {
     getProviders,
     getProviderById,
-    createService
+    createService,
+    editProvider
 }
