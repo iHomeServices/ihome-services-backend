@@ -1,8 +1,12 @@
 const providerRepository = require('../repository/providerRepository');
 
 async function getProviders() {
-    const providers = await providerRepository.getProviders();
-    return providers;
+    try{
+        const providers = await providerRepository.getProviders();
+        return providers;
+    }catch(err){
+        throw err;
+    }
 }
 
 async function getProviderById(id) {

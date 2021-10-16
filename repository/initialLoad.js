@@ -1,11 +1,35 @@
 const mongoClient = require('./databaseConfig');
 
+const collections = [
+    "provider",
+    "customer",
+    "category",
+    "service"
+]
+
+const dropCollection = async (collection) => {
+    try{
+        await mongoClient.db().dropCollection(collection);
+    }catch(err){
+        console.error(`Drop collection ${collection} failed.`, err.message);
+    }
+}
+
+const createCollection = async (collection) => {
+    try{
+        await mongoClient.db().createCollection(collection);
+    }catch(err){
+        console.error(`Create collection ${collection} failed.`, err.message);
+    }
+}
+
 const populateDatabase = async () => {
     await mongoClient.connect();
-    await mongoClient.db().createCollection("provider");
-    await mongoClient.db().createCollection("customer");
-    await mongoClient.db().createCollection("category");
-    await mongoClient.db().createCollection("service");
+
+    collections.forEach(async (collection) => {
+        await dropCollection(collection);
+        await createCollection(collection);
+    });
 
     const providers = [
         {
@@ -54,28 +78,37 @@ const populateDatabase = async () => {
 
     const categories = [
         {
+            id: 1,
             name: 'Eletricista',
             icon: 'flash'
         },
         {
+            id: 2,
             name: 'Pedreiro',
             icon: 'home'
         },
         {
+            id: 3,
             name: 'Piscineiro',
             icon: 'pool'
         },
         {
+            id: 4,
             name: 'Pintor',
             icon: 'format-paint'
         },
         {
+            id: 5,
             name: 'Jardineiro',
             icon: 'leaf'
         }
     ];
 
     const services = [
+        {
+            comment: "Ruim demais",
+            rating: 1
+        },
         {
             comment: "Muito bom",
             rating: 5
