@@ -13,16 +13,17 @@ providerRouter.get('/:id', async (req, res) => {
 });
 
 providerRouter.post('/service', async (req, res) => {
-    await uploadImage(req, res);
+    // await uploadImage(req, res);
     
-    const { service } = req.body;
+    const service = req.body;
     const result = providerService.createService(service);
     console.log(result);
     res.redirect('/');
 });
 
-providerRouter.post('/edit', async (req, res) => {
-    const { provider } = req.body;
+providerRouter.put('/edit', async (req, res) => {
+    const provider = req.body;
+    console.log("controller", provider);
     const result = providerService.editProvider(provider);
     console.log(result);
     res.redirect(result);

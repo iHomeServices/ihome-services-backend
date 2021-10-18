@@ -1,4 +1,5 @@
 const providerRepository = require('../repository/providerRepository');
+const { ObjectId } = require('bson');
 
 async function getProviders() {
     try{
@@ -15,11 +16,22 @@ async function getProviderById(id) {
 }
 
 async function createService(service) {
-    const result = providerRepository.createService(service);
+    const rightService = {
+        ...service,
+        idProvider: ObjectId(service.idProvider),
+        idCustomer: ObjectId(service.idCustomer)
+    };
+    const result = providerRepository.createService(rightService);
     return result;
 }
 
 async function editProvider(provider) {
+    console.log(provider);
+    const rightProvider = {
+        ...provider,
+        // id: ObjectId(provider.id)
+    }
+    console.log(rightProvider);
     const result = providerRepository.editProvider(provider);
     return result;
 }

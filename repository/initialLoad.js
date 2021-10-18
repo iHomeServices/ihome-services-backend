@@ -1,3 +1,4 @@
+const { ObjectId } = require('bson');
 const mongoClient = require('./databaseConfig');
 
 const collections = [
@@ -31,48 +32,51 @@ const populateDatabase = async () => {
         await createCollection(collection);
     });
 
+    const idProvider1 = ObjectId();
+    const idProvider2 = ObjectId();
+    const idCustomer1 = ObjectId();
+    const idCustomer2 = ObjectId();
+
     const providers = [
         {
+            _id: idProvider1,
             name: "Caetano Veloso",
             city: "Salvador",
             phoneNumber: 16999112233,
-            categoryId: 1,
-            services: [1, 2]
+            categoryId: 1
         },
         {
+            _id: idProvider2,
             name: "Milton Nascimento",
             city: "Santos",
             phoneNumber: 16999112233,
-            categoryId: 1,
-            services: [3]
+            categoryId: 1
         },
         {
             name: "Michael Jackson",
             city: "Araraquara",
             phoneNumber: 16999112233,
-            categoryId: 2,
-            services: []
+            categoryId: 2
         }
     ];
 
     const customers = [
         {
+            _id: idCustomer1,
             name: "Rita Lee",
             city: "Rio de Janeiro",
-            phoneNumber: 16999112233,
-            services: [1, 2]
+            phoneNumber: 16999112233
         },
         {
+            _id: idCustomer2,
             name: "Roberto Carlos",
             city: "Santos",
-            phoneNumber: 16999112233,
-            services: [3]
+            phoneNumber: 16999112233
         },
         {
             name: "Lionel Ritchie",
             city: "Araraquara",
-            phoneNumber: 16999112233,
-            services: []
+            phoneNumber: 16999112233
         }
     ];
 
@@ -106,20 +110,22 @@ const populateDatabase = async () => {
 
     const services = [
         {
+            idProvider: idProvider1,
+            idCustomer: idCustomer1,
             comment: "Ruim demais",
             rating: 1
         },
         {
+            idProvider: idProvider1,
+            idCustomer: idCustomer1,
             comment: "Muito bom",
             rating: 5
         },
         {
+            idProvider: idProvider2,
+            idCustomer: idCustomer2,
             comment: "Serviço mais ou menos",
             rating: 2
-        },
-        {
-            comment: "Gostei",
-            rating: 4
         }
     ];
 
