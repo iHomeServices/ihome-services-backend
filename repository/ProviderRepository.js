@@ -30,17 +30,18 @@ const getProviderById = async (id) => {
 }
 
 const createService = async (service) => {
+    service.comment = null;
+    service.rating = null;
+    service.startDate = Date.now();
+    service.endDate = null;
+    service.isDone = false;
     await mongoClient.connect();
-    const result = await mongoClient.db().collection("service").insertOne(service);
-    return result;
+    await mongoClient.db().collection("service").insertOne(service);
 }
 
-const editProvider = async (provider) => {
+const editProvider = async (id, provider) => {
     await mongoClient.connect();
-    // await mongoClient.db().collection("provider").deleteOne({ '_id': provider._id });
-    // const result = await mongoClient.db().collection("provider").insertOne(provider);
-    // return result;
-    return "bla";
+    await mongoClient.db().collection("provider").findOneAndReplace({ '_id': ObjectId(id) }, provider);
 }
 
 module.exports = {

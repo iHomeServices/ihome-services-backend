@@ -2,16 +2,20 @@ const providerRepository = require('../repository/providerRepository');
 const { ObjectId } = require('bson');
 
 async function getProviders() {
-    try{
+    try {
         const providers = await providerRepository.getProviders();
         return providers;
-    }catch(err){
+    } catch (err) {
         throw err;
     }
 }
 
 async function getProviderById(id) {
     const provider = await providerRepository.getProviderById(id);
+    provider.services.map(service => {
+        service.startDate = service.startDate != null ? new Date(service.startDate).toLocaleDateString() : null;
+        service.endDate = service.endDate != null ? new Date(service.endDate).toLocaleDateString() : null;
+    });
     return provider;
 }
 
@@ -25,14 +29,8 @@ async function createService(service) {
     return result;
 }
 
-async function editProvider(provider) {
-    console.log(provider);
-    const rightProvider = {
-        ...provider,
-        // id: ObjectId(provider.id)
-    }
-    console.log(rightProvider);
-    const result = providerRepository.editProvider(provider);
+async function editProvider(id, provider) {
+    const result = providerRepository.editProvider(id, provider);
     return result;
 }
 

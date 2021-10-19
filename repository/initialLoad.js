@@ -43,6 +43,7 @@ const populateDatabase = async () => {
             name: "Caetano Veloso",
             city: "Salvador",
             phoneNumber: 16999112233,
+            email: "caetano@hotmail.com",
             categoryId: 1
         },
         {
@@ -50,12 +51,14 @@ const populateDatabase = async () => {
             name: "Milton Nascimento",
             city: "Santos",
             phoneNumber: 16999112233,
+            email: "milton@gmail.com",
             categoryId: 1
         },
         {
             name: "Michael Jackson",
             city: "Araraquara",
             phoneNumber: 16999112233,
+            email: "mjackson@gmail.com",
             categoryId: 2
         }
     ];
@@ -112,20 +115,29 @@ const populateDatabase = async () => {
         {
             idProvider: idProvider1,
             idCustomer: idCustomer1,
-            comment: "Ruim demais",
-            rating: 1
+            comment: null,
+            rating: null,
+            startDate: 1634342973000,
+            endDate: null,
+            isDone: false,
         },
         {
             idProvider: idProvider1,
             idCustomer: idCustomer1,
             comment: "Muito bom",
-            rating: 5
+            rating: 5,
+            startDate: 1629850173000,
+            endDate: 1630282173000,
+            isDone: true,
         },
         {
             idProvider: idProvider2,
             idCustomer: idCustomer2,
             comment: "Serviço mais ou menos",
-            rating: 2
+            rating: 2,
+            startDate: 1620691773000,
+            endDate: 1621901373000,
+            isDone: true,
         }
     ];
 

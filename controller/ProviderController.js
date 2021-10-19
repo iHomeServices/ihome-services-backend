@@ -18,15 +18,13 @@ providerRouter.post('/service', async (req, res) => {
     const service = req.body;
     const result = providerService.createService(service);
     console.log(result);
-    res.redirect('/');
+    res.status(200).send();
 });
 
-providerRouter.put('/edit', async (req, res) => {
+providerRouter.put('/edit/:id', async (req, res) => {
     const provider = req.body;
-    console.log("controller", provider);
-    const result = providerService.editProvider(provider);
-    console.log(result);
-    res.redirect(result);
+    providerService.editProvider(req.params.id, provider);
+    res.status(200).send();
 });
 
 module.exports = providerRouter;
