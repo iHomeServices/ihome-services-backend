@@ -40,8 +40,10 @@ const populateDatabase = async () => {
     const providers = [
         {
             _id: idProvider1,
+            avatar: 'https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/3/a/8/5/3a852df5917814a20762d8ea755170ba.jpg',
             name: "Caetano Veloso",
             city: "Salvador",
+            state: "BA",
             phoneNumber: 16999112233,
             email: "caetano@hotmail.com",
             categoryId: 1
@@ -49,14 +51,18 @@ const populateDatabase = async () => {
         {
             _id: idProvider2,
             name: "Milton Nascimento",
+            avatar: 'https://www.eventim.com.br/obj/media/BR-eventim/galery/222x222/m/milton-nascimento-222x222.jpg',
             city: "Santos",
+            state: "SP",
             phoneNumber: 16999112233,
             email: "milton@gmail.com",
             categoryId: 1
         },
         {
             name: "Michael Jackson",
+            avatar: 'https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/capa_8.jpg?Lr_Je.lLbu9XOokyALMrahQwsZQ7OQ75&itok=JHWfuewT',
             city: "Araraquara",
+            state: "SP",
             phoneNumber: 16999112233,
             email: "mjackson@gmail.com",
             categoryId: 2
