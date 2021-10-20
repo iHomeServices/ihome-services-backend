@@ -9,17 +9,17 @@ const collections = [
 ]
 
 const dropCollection = async (collection) => {
-    try{
+    try {
         await mongoClient.db().dropCollection(collection);
-    }catch(err){
+    } catch (err) {
         console.error(`Drop collection ${collection} failed.`, err.message);
     }
 }
 
 const createCollection = async (collection) => {
-    try{
+    try {
         await mongoClient.db().createCollection(collection);
-    }catch(err){
+    } catch (err) {
         console.error(`Create collection ${collection} failed.`, err.message);
     }
 }
@@ -36,6 +36,8 @@ const populateDatabase = async () => {
     const idProvider2 = ObjectId();
     const idCustomer1 = ObjectId();
     const idCustomer2 = ObjectId();
+    const idCategory1 = ObjectId();
+    const idCategory2 = ObjectId();
 
     const providers = [
         {
@@ -44,7 +46,7 @@ const populateDatabase = async () => {
             city: "Salvador",
             phoneNumber: 16999112233,
             email: "caetano@hotmail.com",
-            categoryId: 1
+            categoryId: idCategory1
         },
         {
             _id: idProvider2,
@@ -52,14 +54,14 @@ const populateDatabase = async () => {
             city: "Santos",
             phoneNumber: 16999112233,
             email: "milton@gmail.com",
-            categoryId: 1
+            categoryId: idCategory1
         },
         {
             name: "Michael Jackson",
             city: "Araraquara",
             phoneNumber: 16999112233,
             email: "mjackson@gmail.com",
-            categoryId: 2
+            categoryId: idCategory2
         }
     ];
 
@@ -85,27 +87,24 @@ const populateDatabase = async () => {
 
     const categories = [
         {
-            id: 1,
+            _id: idCategory1,
             name: 'Eletricista',
             icon: 'flash'
         },
         {
-            id: 2,
+            _id: idCategory2,
             name: 'Pedreiro',
             icon: 'home'
         },
         {
-            id: 3,
             name: 'Piscineiro',
             icon: 'pool'
         },
         {
-            id: 4,
             name: 'Pintor',
             icon: 'format-paint'
         },
         {
-            id: 5,
             name: 'Jardineiro',
             icon: 'leaf'
         }
@@ -146,7 +145,7 @@ const populateDatabase = async () => {
     await mongoClient.db().collection("category").insertMany(categories);
     await mongoClient.db().collection("service").insertMany(services);
 
-    mongoClient.close();
+    await mongoClient.close();
 }
 
 module.exports = {

@@ -27,4 +27,9 @@ providerRouter.put('/edit/:id', async (req, res) => {
     res.status(200).send();
 });
 
+providerRouter.post('/finish-service/:id', async (req, res) => {
+    providerService.finishService(req.params.id);
+    res.status(200).send();
+})
+
 module.exports = providerRouter;

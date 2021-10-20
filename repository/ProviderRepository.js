@@ -4,7 +4,7 @@ const { ObjectId } = require('bson');
 const getProviders = async () => {
     await mongoClient.connect();
     const providers = await mongoClient.db().collection("provider").find({}).toArray();
-    mongoClient.close();
+    await mongoClient.close();
     return providers;
 }
 
@@ -13,9 +13,8 @@ const getProviderById = async (id) => {
     const provider = await mongoClient.db().collection("provider").findOne({ '_id': ObjectId(id) });
 
     if (provider) {
-        // const services = provider.services.map(service => ObjectId(service));
-        // const ratings = await mongoClient.db().collection("service").find({ '_id': { $in: services } }).toArray();
         const services = await mongoClient.db().collection("service").find({ 'idProvider': ObjectId(id) }).toArray();
+        await mongoClient.close();
 
         const fullProvider = {
             ...provider,
@@ -23,8 +22,8 @@ const getProviderById = async (id) => {
         };
 
         return fullProvider;
-
     } else {
+        await mongoClient.close();
         return {};
     }
 }
@@ -37,16 +36,25 @@ const createService = async (service) => {
     service.isDone = false;
     await mongoClient.connect();
     await mongoClient.db().collection("service").insertOne(service);
+    await mongoClient.close();
 }
 
 const editProvider = async (id, provider) => {
     await mongoClient.connect();
     await mongoClient.db().collection("provider").findOneAndReplace({ '_id': ObjectId(id) }, provider);
+    await mongoClient.close();
+}
+
+const finishService = async (id) => {
+    await mongoClient.connect();
+    await mongoClient.db().collection("service").findOneAndUpdate({ '_id': ObjectId(id) }, { $set: { isDone: true } });
+    await mongoClient.close();
 }
 
 module.exports = {
     getProviders,
     getProviderById,
     createService,
-    editProvider
+    editProvider,
+    finishService
 }

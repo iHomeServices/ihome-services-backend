@@ -34,9 +34,15 @@ async function editProvider(id, provider) {
     return result;
 }
 
+async function finishService(id) {
+    const result = providerRepository.finishService(id);
+    return result;
+}
+
 module.exports = {
     getProviders,
     getProviderById,
     createService,
-    editProvider
+    editProvider,
+    finishService
 }
