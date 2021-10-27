@@ -1,8 +1,9 @@
 var express = require('express');
+var router = express.Router()
 const categoryRouter = require('./controller/categoryController');
 const customerRouter = require('./controller/customerController');
-var router = express.Router()
-var providerRouter = require('./controller/ProviderController');
+var providerRouter = require('./controller/providerController');
+var loginRouter = require('./controller/loginController');
 var initialLoad = require('./repository/initialLoad');
 
 router.use(function timeLog (req, res, next) {
@@ -18,5 +19,6 @@ router.get('/initial-load', async (req, res) => {
 router.use('/provider', providerRouter);
 router.use('/customer', customerRouter);
 router.use('/category', categoryRouter);
+router.use('/login', loginRouter);
 
 module.exports = router

@@ -17,7 +17,6 @@ providerRouter.post('/service', async (req, res) => {
     
     const service = req.body;
     const result = providerService.createService(service);
-    console.log(result);
     res.status(200).send();
 });
 
@@ -30,6 +29,6 @@ providerRouter.put('/edit/:id', async (req, res) => {
 providerRouter.post('/finish-service/:id', async (req, res) => {
     providerService.finishService(req.params.id);
     res.status(200).send();
-})
+});
 
 module.exports = providerRouter;

@@ -1,4 +1,5 @@
 const mongoClient = require('../repository/databaseConfig');
+const { ObjectId } = require('bson');
 
 const getCustomers = async () => {
     await mongoClient.connect();
@@ -7,6 +8,35 @@ const getCustomers = async () => {
     return customers;
 }
 
+const getCustomerById = async (id) => {
+    await mongoClient.connect();
+    const customer = await mongoClient.db().collection("customer").findOne({ '_id': ObjectId(id) });
+
+    if (customer) {
+        const services = await mongoClient.db().collection("service").find({ 'idCustomer': ObjectId(id) }).toArray();
+        mongoClient.close();
+
+        const fullCustomer = {
+            ...customer,
+            services: [...services]
+        };
+
+        return fullCustomer;
+    } else {
+        mongoClient.close();
+        return {};
+    }
+}
+
+const register = async (customer) => {
+    await mongoClient.connect();
+    const result = await mongoClient.db().collection("customer").insertOne(customer);
+    mongoClient.close();
+    return result;
+}
+
 module.exports = {
-    getCustomers
+    getCustomers,
+    getCustomerById,
+    register
 }

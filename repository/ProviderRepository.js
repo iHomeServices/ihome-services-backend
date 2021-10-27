@@ -4,7 +4,7 @@ const { ObjectId } = require('bson');
 const getProviders = async () => {
     await mongoClient.connect();
     const providers = await mongoClient.db().collection("provider").find({}).toArray();
-    await mongoClient.close();
+    mongoClient.close();
     return providers;
 }
 
@@ -14,7 +14,7 @@ const getProviderById = async (id) => {
 
     if (provider) {
         const services = await mongoClient.db().collection("service").find({ 'idProvider': ObjectId(id) }).toArray();
-        await mongoClient.close();
+        mongoClient.close();
 
         const fullProvider = {
             ...provider,
@@ -23,7 +23,7 @@ const getProviderById = async (id) => {
 
         return fullProvider;
     } else {
-        await mongoClient.close();
+        mongoClient.close();
         return {};
     }
 }
@@ -36,19 +36,26 @@ const createService = async (service) => {
     service.isDone = false;
     await mongoClient.connect();
     await mongoClient.db().collection("service").insertOne(service);
-    await mongoClient.close();
+    mongoClient.close();
 }
 
 const editProvider = async (id, provider) => {
     await mongoClient.connect();
     await mongoClient.db().collection("provider").findOneAndReplace({ '_id': ObjectId(id) }, provider);
-    await mongoClient.close();
+    mongoClient.close();
 }
 
 const finishService = async (id) => {
     await mongoClient.connect();
     await mongoClient.db().collection("service").findOneAndUpdate({ '_id': ObjectId(id) }, { $set: { isDone: true } });
-    await mongoClient.close();
+    mongoClient.close();
+}
+
+const register = async (provider) => {
+    await mongoClient.connect();
+    const result = await mongoClient.db().collection("provider").insertOne(provider);
+    mongoClient.close();
+    return result;
 }
 
 module.exports = {
@@ -56,5 +63,6 @@ module.exports = {
     getProviderById,
     createService,
     editProvider,
-    finishService
+    finishService,
+    register
 }

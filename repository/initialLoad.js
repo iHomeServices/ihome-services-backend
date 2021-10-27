@@ -5,7 +5,8 @@ const collections = [
     "provider",
     "customer",
     "category",
-    "service"
+    "service",
+    "login"
 ]
 
 const dropCollection = async (collection) => {
@@ -29,13 +30,18 @@ const populateDatabase = async () => {
 
     collections.forEach(async (collection) => {
         await dropCollection(collection);
+    });
+
+    collections.forEach(async (collection) => {
         await createCollection(collection);
     });
 
     const idProvider1 = ObjectId();
     const idProvider2 = ObjectId();
+    const idProvider3 = ObjectId();
     const idCustomer1 = ObjectId();
     const idCustomer2 = ObjectId();
+    const idCustomer3 = ObjectId();
     const idCategory1 = ObjectId();
     const idCategory2 = ObjectId();
 
@@ -61,6 +67,7 @@ const populateDatabase = async () => {
             categoryId: idCategory1
         },
         {
+            _id: idProvider3,
             name: "Michael Jackson",
             avatar: 'https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/capa_8.jpg?Lr_Je.lLbu9XOokyALMrahQwsZQ7OQ75&itok=JHWfuewT',
             city: "Araraquara",
@@ -85,6 +92,7 @@ const populateDatabase = async () => {
             phoneNumber: 16999112233
         },
         {
+            _id: idCustomer3,
             name: "Lionel Ritchie",
             city: "Araraquara",
             phoneNumber: 16999112233
@@ -146,12 +154,52 @@ const populateDatabase = async () => {
         }
     ];
 
+    const login = [
+        {
+            userId: idProvider1,
+            username: "c.veloso",
+            password: "123",
+            isProvider: true,
+        },
+        {
+            userId: idProvider2,
+            username: "milton_nascimento",
+            password: "123",
+            isProvider: true,
+        },
+        {
+            userId: idProvider3,
+            username: "jackson.michael",
+            password: "123",
+            isProvider: true,
+        },
+        {
+            userId: idCustomer1,
+            username: "ritaLee",
+            password: "123",
+            isProvider: false,
+        },
+        {
+            userId: idCustomer2,
+            username: "roberto_carlos",
+            password: "123",
+            isProvider: false,
+        },
+        {
+            userId: idCustomer3,
+            username: "lionel.ritchie",
+            password: "123",
+            isProvider: false,
+        }
+    ];
+
     await mongoClient.db().collection("provider").insertMany(providers);
     await mongoClient.db().collection("customer").insertMany(customers);
     await mongoClient.db().collection("category").insertMany(categories);
     await mongoClient.db().collection("service").insertMany(services);
+    await mongoClient.db().collection("login").insertMany(login);
 
-    await mongoClient.close();
+    mongoClient.close();
 }
 
 module.exports = {
