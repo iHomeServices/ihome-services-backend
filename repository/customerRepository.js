@@ -13,11 +13,16 @@ const getCustomerById = async (id) => {
     const customer = await mongoClient.db().collection("customer").findOne({ '_id': ObjectId(id) });
 
     if (customer) {
+        const login = await mongoClient.db().collection("login").findOne({ 'userId': ObjectId(id) });
+
         const services = await mongoClient.db().collection("service").find({ 'idCustomer': ObjectId(id) }).toArray();
         mongoClient.close();
 
+
         const fullCustomer = {
             ...customer,
+            username: login.username,
+            isProvider: false,
             services: [...services]
         };
 

@@ -13,11 +13,15 @@ const getProviderById = async (id) => {
     const provider = await mongoClient.db().collection("provider").findOne({ '_id': ObjectId(id) });
 
     if (provider) {
+        const login = await mongoClient.db().collection("login").findOne({ 'userId': ObjectId(id) });
+        
         const services = await mongoClient.db().collection("service").find({ 'idProvider': ObjectId(id) }).toArray();
         mongoClient.close();
 
         const fullProvider = {
             ...provider,
+            username: login.username,
+            isProvider: true,
             services: [...services]
         };
 

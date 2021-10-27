@@ -4,6 +4,7 @@ const { ObjectId } = require('bson');
 async function getProviders() {
     try {
         const providers = await providerRepository.getProviders();
+
         return providers;
     } catch (err) {
         throw err;
@@ -16,6 +17,7 @@ async function getProviderById(id) {
         service.startDate = service.startDate != null ? new Date(service.startDate).toLocaleDateString() : null;
         service.endDate = service.endDate != null ? new Date(service.endDate).toLocaleDateString() : null;
     });
+
     return provider;
 }
 

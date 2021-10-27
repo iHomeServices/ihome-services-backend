@@ -19,9 +19,13 @@ async function authenticate(login) {
 
 async function register(user) {
     let userId;
+    let userRegister = {...user};
+    delete user.isProvider;
+    delete user.username;
+    delete user.password;
 
     try {
-        if (user.isProvider) {
+        if (userRegister.isProvider) {
             const result = await providerRepository.register(user);
             userId = result.insertedId;
         } else {
@@ -29,8 +33,9 @@ async function register(user) {
             userId = result.insertedId;
         }
 
-        user.userId = userId;
-        await loginRepository.register(user);
+        delete userRegister.name;
+        userRegister.userId = userId;
+        await loginRepository.register(userRegister);
     } catch (err) {
         throw err;
     }
