@@ -10,26 +10,33 @@ const getProviders = async () => {
 
 const getProviderById = async (id) => {
     await mongoClient.connect();
-    const provider = await mongoClient.db().collection("provider").findOne({ '_id': ObjectId(id) });
+    
+    try {
+        const provider = await mongoClient.db().collection("provider").findOne({ '_id': ObjectId(id) });
 
-    if (provider) {
-        const login = await mongoClient.db().collection("login").findOne({ 'userId': ObjectId(id) });
-        
-        const services = await mongoClient.db().collection("service").find({ 'idProvider': ObjectId(id) }).toArray();
-        mongoClient.close();
-
-        const fullProvider = {
-            ...provider,
-            username: login.username,
-            isProvider: true,
-            services: [...services]
-        };
-
-        return fullProvider;
-    } else {
-        mongoClient.close();
+        if (provider) {
+            const login = await mongoClient.db().collection("login").findOne({ 'userId': ObjectId(id) });
+            
+            const services = await mongoClient.db().collection("service").find({ 'idProvider': ObjectId(id) }).toArray();
+            mongoClient.close();
+    
+            const fullProvider = {
+                ...provider,
+                username: login.username,
+                isProvider: true,
+                services: [...services]
+            };
+    
+            return fullProvider;
+        } else {
+            return {};
+        }
+    }catch(err){
+        console.log(err);
         return {};
     }
+
+    mongoClient.close();
 }
 
 const createService = async (service) => {
@@ -51,7 +58,12 @@ const editProvider = async (id, provider) => {
 
 const finishService = async (id) => {
     await mongoClient.connect();
-    await mongoClient.db().collection("service").findOneAndUpdate({ '_id': ObjectId(id) }, { $set: { isDone: true } });
+    await mongoClient.db().collection("service").findOneAndUpdate({ '_id': ObjectId(id) }, { 
+        $set: { 
+            isDone: true,
+            endDate: Date.now()
+        }
+    });
     mongoClient.close();
 }
 

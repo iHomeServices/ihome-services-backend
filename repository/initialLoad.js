@@ -52,9 +52,10 @@ const populateDatabase = async () => {
             name: "Caetano Veloso",
             city: "Salvador",
             state: "BA",
-            phoneNumber: 16999112233,
+            phoneNumber: 5516992428527,
             email: "caetano@hotmail.com",
-            categoryId: idCategory1
+            categoryId: idCategory1,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
         },
         {
             _id: idProvider2,
@@ -62,9 +63,10 @@ const populateDatabase = async () => {
             avatar: 'https://www.eventim.com.br/obj/media/BR-eventim/galery/222x222/m/milton-nascimento-222x222.jpg',
             city: "Santos",
             state: "SP",
-            phoneNumber: 16999112233,
+            phoneNumber: 5516992428527,
             email: "milton@gmail.com",
-            categoryId: idCategory1
+            categoryId: idCategory1,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
         },
         {
             _id: idProvider3,
@@ -72,9 +74,10 @@ const populateDatabase = async () => {
             avatar: 'https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/capa_8.jpg?Lr_Je.lLbu9XOokyALMrahQwsZQ7OQ75&itok=JHWfuewT',
             city: "Araraquara",
             state: "SP",
-            phoneNumber: 16999112233,
+            phoneNumber: 5516992428527,
             email: "mjackson@gmail.com",
-            categoryId: idCategory2
+            categoryId: idCategory2,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
         }
     ];
 
@@ -89,13 +92,13 @@ const populateDatabase = async () => {
             _id: idCustomer2,
             name: "Roberto Carlos",
             city: "Santos",
-            phoneNumber: 16999112233
+            phoneNumber: 5516999112233
         },
         {
             _id: idCustomer3,
             name: "Lionel Ritchie",
             city: "Araraquara",
-            phoneNumber: 16999112233
+            phoneNumber: 5516999112233
         }
     ];
 
@@ -127,7 +130,8 @@ const populateDatabase = async () => {
     const services = [
         {
             idProvider: idProvider1,
-            idCustomer: idCustomer1,
+            idCustomer: idCustomer3,
+            nameCustomer: 'Lionel Ritchie',
             comment: null,
             rating: null,
             startDate: 1634342973000,
@@ -137,6 +141,7 @@ const populateDatabase = async () => {
         {
             idProvider: idProvider1,
             idCustomer: idCustomer1,
+            nameCustomer: 'Rita Lee',
             comment: "Muito bom",
             rating: 5,
             startDate: 1629850173000,
@@ -146,6 +151,7 @@ const populateDatabase = async () => {
         {
             idProvider: idProvider2,
             idCustomer: idCustomer2,
+            nameCustomer: 'Roberto Carlos',
             comment: "Serviço mais ou menos",
             rating: 2,
             startDate: 1620691773000,

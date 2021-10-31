@@ -13,10 +13,12 @@ async function getProviders() {
 
 async function getProviderById(id) {
     const provider = await providerRepository.getProviderById(id);
-    provider.services.map(service => {
-        service.startDate = service.startDate != null ? new Date(service.startDate).toLocaleDateString() : null;
-        service.endDate = service.endDate != null ? new Date(service.endDate).toLocaleDateString() : null;
-    });
+    if(provider.services) {
+        provider.services.map(service => {
+            service.startDate = service.startDate != null ? new Date(service.startDate).toLocaleDateString() : null;
+            service.endDate = service.endDate != null ? new Date(service.endDate).toLocaleDateString() : null;
+        });
+    }
 
     return provider;
 }
