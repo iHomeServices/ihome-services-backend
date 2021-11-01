@@ -5,7 +5,12 @@ const loginService = require('../service/loginService');
 loginRouter.post('/', async (req, res) => {
     const login = req.body;
     const user = await loginService.authenticate(login);
-    res.send(user);
+
+    if (user) {
+        res.status(200).send(user);
+    } else {
+        res.status(401).send('Invalid username or password');
+    }
 });
 
 loginRouter.post('/register', async (req, res) => {

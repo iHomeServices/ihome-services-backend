@@ -52,7 +52,7 @@ const populateDatabase = async () => {
             name: "Caetano Veloso",
             city: "Salvador",
             state: "BA",
-            phoneNumber: 5516992428527,
+            phoneNumber: "5516992428527",
             email: "caetano@hotmail.com",
             categoryId: idCategory1,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
@@ -63,7 +63,7 @@ const populateDatabase = async () => {
             avatar: 'https://www.eventim.com.br/obj/media/BR-eventim/galery/222x222/m/milton-nascimento-222x222.jpg',
             city: "Santos",
             state: "SP",
-            phoneNumber: 5516992428527,
+            phoneNumber: "5516992428527",
             email: "milton@gmail.com",
             categoryId: idCategory1,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
@@ -74,7 +74,7 @@ const populateDatabase = async () => {
             avatar: 'https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/capa_8.jpg?Lr_Je.lLbu9XOokyALMrahQwsZQ7OQ75&itok=JHWfuewT',
             city: "Araraquara",
             state: "SP",
-            phoneNumber: 5516992428527,
+            phoneNumber: "5516992428527",
             email: "mjackson@gmail.com",
             categoryId: idCategory2,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
@@ -86,19 +86,19 @@ const populateDatabase = async () => {
             _id: idCustomer1,
             name: "Rita Lee",
             city: "Rio de Janeiro",
-            phoneNumber: 16999112233
+            phoneNumber: "1699911223"
         },
         {
             _id: idCustomer2,
             name: "Roberto Carlos",
             city: "Santos",
-            phoneNumber: 5516999112233
+            phoneNumber: "551699911223"
         },
         {
             _id: idCustomer3,
             name: "Lionel Ritchie",
             city: "Araraquara",
-            phoneNumber: 5516999112233
+            phoneNumber: "551699911223"
         }
     ];
 
