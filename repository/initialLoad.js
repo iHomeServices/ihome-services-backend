@@ -26,8 +26,6 @@ const createCollection = async (collection) => {
 }
 
 const populateDatabase = async () => {
-    await mongoClient.connect();
-
     collections.forEach(async (collection) => {
         await dropCollection(collection);
     });
@@ -205,7 +203,6 @@ const populateDatabase = async () => {
     await mongoClient.db().collection("service").insertMany(services);
     await mongoClient.db().collection("login").insertMany(login);
 
-    mongoClient.close();
 }
 
 module.exports = {
