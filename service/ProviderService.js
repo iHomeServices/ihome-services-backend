@@ -34,12 +34,32 @@ async function createService(service) {
 }
 
 async function editProvider(id, provider) {
-    const result = providerRepository.editProvider(id, provider);
+    const oldProvider = await getProviderById(id);
+    delete oldProvider.services;
+    delete oldProvider.login;
+
+    const newProvider = {
+        name: provider.name || oldProvider.name,
+        avatar: provider.avatar || oldProvider.avatar,
+        city: provider.city || oldProvider.city,
+        state: provider.state || oldProvider.state,
+        phoneNumber: provider.phoneNumber || oldProvider.phoneNumber,
+        email: provider.email || oldProvider.email,
+        categoryId: provider.categoryId || oldProvider.categoryId,
+        description: provider.description || oldProvider.description,
+    };
+
+    const result = providerRepository.editProvider(id, newProvider);
     return result;
 }
 
-async function finishService(id) {
-    const result = providerRepository.finishService(id);
+async function finishServiceAndAddEvaluation(id, evaluation) {
+    const result = providerRepository.finishServiceAndAddEvaluation(id, evaluation);
+    return result;
+}
+
+async function cancelService(id) {
+    const result = providerRepository.cancelService(id);
     return result;
 }
 
@@ -48,5 +68,6 @@ module.exports = {
     getProviderById,
     createService,
     editProvider,
-    finishService
+    finishServiceAndAddEvaluation,
+    cancelService
 }

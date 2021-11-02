@@ -14,7 +14,7 @@ providerRouter.get('/:id', async (req, res) => {
 
 providerRouter.post('/service', async (req, res) => {
     // await uploadImage(req, res);
-    
+
     const service = req.body;
     const result = providerService.createService(service);
     res.status(200).send();
@@ -27,8 +27,31 @@ providerRouter.put('/edit/:id', async (req, res) => {
 });
 
 providerRouter.post('/finish-service/:id', async (req, res) => {
-    providerService.finishService(req.params.id);
+    const evaluation = req.body
+    providerService.finishServiceAndAddEvaluation(req.params.id, evaluation);
     res.status(200).send();
+});
+
+providerRouter.delete('/cancel-service/:id', async (req, res) => {
+    providerService.cancelService(req.params.id);
+    res.status(200).send();
+});
+
+providerRouter.post('/upload-avatar', (req, res, next) => {
+    const formidable = require('formidable');
+    const fs = require('fs');
+    const form = new formidable.IncomingForm();
+
+    form.parse(req, (err, fields, files) => {
+ 
+        console.log('files', files);
+        const path = require('path');
+        const oldpath = files.filetoupload.filepath;
+        const newpath = path.join(__dirname, 'public', 'files');
+        
+        fs.renameSync(oldpath, newpath);
+        res.send('File uploaded and moved!');
+      });
 });
 
 module.exports = providerRouter;

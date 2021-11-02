@@ -1,4 +1,4 @@
-const mongoClient = require('../repository/databaseConfig');
+const mongoClient = require('./databaseConfig');
 const { ObjectId } = require('bson');
 
 const getProviders = async () => {
@@ -10,28 +10,28 @@ const getProviders = async () => {
 
 const getProviderById = async (id) => {
     await mongoClient.connect();
-    
+
     try {
         const provider = await mongoClient.db().collection("provider").findOne({ '_id': ObjectId(id) });
 
         if (provider) {
             const login = await mongoClient.db().collection("login").findOne({ 'userId': ObjectId(id) });
-            
+
             const services = await mongoClient.db().collection("service").find({ 'idProvider': ObjectId(id) }).toArray();
             mongoClient.close();
-    
+
             const fullProvider = {
                 ...provider,
                 username: login.username,
                 isProvider: true,
                 services: [...services]
             };
-    
+
             return fullProvider;
         } else {
             return {};
         }
-    }catch(err){
+    } catch (err) {
         console.log(err);
         return {};
     }
@@ -56,14 +56,22 @@ const editProvider = async (id, provider) => {
     mongoClient.close();
 }
 
-const finishService = async (id) => {
+const finishServiceAndAddEvaluation = async (id, evaluation) => {
     await mongoClient.connect();
-    await mongoClient.db().collection("service").findOneAndUpdate({ '_id': ObjectId(id) }, { 
-        $set: { 
+    await mongoClient.db().collection("service").findOneAndUpdate({ '_id': ObjectId(id) }, {
+        $set: {
             isDone: true,
-            endDate: Date.now()
+            endDate: Date.now(),
+            comment: evaluation.comment,
+            rating: evaluation.rating
         }
     });
+    mongoClient.close();
+}
+
+const cancelService = async (id) => {
+    await mongoClient.connect();
+    await mongoClient.db().collection("service").deleteOne({ '_id': ObjectId(id) });
     mongoClient.close();
 }
 
@@ -79,6 +87,7 @@ module.exports = {
     getProviderById,
     createService,
     editProvider,
-    finishService,
+    finishServiceAndAddEvaluation,
+    cancelService,
     register
 }
