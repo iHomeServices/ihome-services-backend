@@ -51,11 +51,11 @@ const populateDatabase = async () => {
     const providers = [
         {
             _id: idProvider1,
-            avatar: 'https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/3/a/8/5/3a852df5917814a20762d8ea755170ba.jpg',
+            avatar: 'https://thumbs.dreamstime.com/z/dia-do-trabalho-ou-dos-trabalhadores-trabalhador-com-tijolo-homem-usa-uniforme-de-construtor-bonito-no-capacete-maduro-veste-220950736.jpg',
             name: "Ailton Guimaraes",
             city: "São Carlos",
             state: "SP",
-            phoneNumber: "5516992428527",
+            phoneNumber: "5516994641225",
             email: "ailton@hotmail.com",
             categoryId: idCategory1,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
@@ -63,21 +63,21 @@ const populateDatabase = async () => {
         {
             _id: idProvider2,
             name: "Vitor Hugo Santos",
-            avatar: 'https://www.eventim.com.br/obj/media/BR-eventim/galery/222x222/m/milton-nascimento-222x222.jpg',
+            avatar: 'https://thumbs.dreamstime.com/b/trabalhador-sujo-25658674.jpg',
             city: "São Carlos",
             state: "SP",
-            phoneNumber: "5516992428527",
+            phoneNumber: "5516994641225",
             email: "vitor.hugosantos@gmail.com",
             categoryId: idCategory2,
-            description: "Curso de 2 anos no SENAI e experiência de 5 anos"
+            description: "Curso de eletricista de 2 anos no SENAI\nExperiência de 3 anos trabalhando\nBom relacionamento com os clientes\nServiço de qualidade"
         },
         {
             _id: idProvider3,
             name: "Gabriel Oliveira",
-            avatar: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.canstockphoto.com.br%2Fpersa-rosto-homem-feliz-trabalhador-74921371.html&psig=AOvVaw0l0Chz_d9FeZnd-9CaPQyz&ust=1638233997062000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIixy-6vvPQCFQAAAAAdAAAAABAD',
+            avatar: 'https://w600.comps.canstockphoto.com/persa-rosto-homem-feliz-trabalhador-foto_csp74921371.jpg',
             city: "São Carlos",
             state: "SP",
-            phoneNumber: "5516992428527",
+            phoneNumber: "5516994641225",
             email: "mjackson@gmail.com",
             categoryId: idCategory2,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
@@ -85,10 +85,10 @@ const populateDatabase = async () => {
         {
             _id: idProvider4,
             name: "Henrique Silva",
-            avatar: 'https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/capa_8.jpg?Lr_Je.lLbu9XOokyALMrahQwsZQ7OQ75&itok=JHWfuewT',
+            avatar: 'https://img.freepik.com/fotos-gratis/trabalhador-homem-no-capacete-isolado-na-parede-verde_1303-20279.jpg?size=626&ext=jpg',
             city: "São Carlos",
             state: "SP",
-            phoneNumber: "5516992428527",
+            phoneNumber: "5516994641225",
             email: "mjackson@gmail.com",
             categoryId: idCategory2,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
@@ -96,10 +96,10 @@ const populateDatabase = async () => {
         {
             _id: idProvider5,
             name: "Mateus Gomes",
-            avatar: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.canstockphoto.com.br%2Fjovem-trabalhador-desgastar-88651792.html&psig=AOvVaw0l0Chz_d9FeZnd-9CaPQyz&ust=1638233997062000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIixy-6vvPQCFQAAAAAdAAAAABAP',
+            avatar: 'https://w600.comps.canstockphoto.com/jovem-trabalhador-desgastar-banco-de-imagens_csp88651801.jpg',
             city: "São Carlos",
             state: "SP",
-            phoneNumber: "5516992428527",
+            phoneNumber: "5516994641225",
             email: "mjackson@gmail.com",
             categoryId: idCategory2,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
@@ -107,10 +107,10 @@ const populateDatabase = async () => {
         {
             _id: idProvider6,
             name: "Lucas de Araujo",
-            avatar: 'https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/capa_8.jpg?Lr_Je.lLbu9XOokyALMrahQwsZQ7OQ75&itok=JHWfuewT',
+            avatar: 'https://static.vecteezy.com/ti/fotos-gratis/p1/867504-seu-trabalhador-medio-foto.jpg',
             city: "Ibaté",
             state: "SP",
-            phoneNumber: "5516992428527",
+            phoneNumber: "5516994641225",
             email: "mjackson@gmail.com",
             categoryId: idCategory2,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
@@ -118,10 +118,10 @@ const populateDatabase = async () => {
         {
             _id: idProvider7,
             name: "Thiago Augusto Nunes",
-            avatar: 'https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/capa_8.jpg?Lr_Je.lLbu9XOokyALMrahQwsZQ7OQ75&itok=JHWfuewT',
+            avatar: 'https://cdn.w600.comps.canstockphoto.com.br/eletricista-trabalhador-homem-fotos_csp16091289.jpg',
             city: "Araraquara",
             state: "SP",
-            phoneNumber: "5516992428527",
+            phoneNumber: "5516994641225",
             email: "mjackson@gmail.com",
             categoryId: idCategory2,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
@@ -129,11 +129,11 @@ const populateDatabase = async () => {
         {
             _id: idProvider8,
             name: "Bruno Rodrigues",
-            avatar: 'https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/capa_8.jpg?Lr_Je.lLbu9XOokyALMrahQwsZQ7OQ75&itok=JHWfuewT',
+            avatar: 'https://thumbs.dreamstime.com/b/homem-sujo-novo-do-trabalhador-com-o-capacete-do-capacete-de-seguran%C3%A7a-que-guarda-um-glo-do-trabalho-52461046.jpg',
             city: "São Carlos",
             state: "SP",
-            phoneNumber: "5516992428527",
-            email: "mjackson@gmail.com",
+            phoneNumber: "5516994641225",
+            email: "bruno.rodrigues92@gmail.com",
             categoryId: idCategory2,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate at, eligendi ex impedit magni totam illum modi quas dignissimos nisi reprehenderit officiis placeat, dolores culpa sapiente, unde maxime saepe sed."
         },
@@ -187,19 +187,19 @@ const populateDatabase = async () => {
 
     const services = [
         {
-            idProvider: idProvider1,
+            idProvider: idProvider2,
             idCustomer: idCustomer3,
-            nameCustomer: providers[1].name,
-            comment: null,
-            rating: null,
+            nameCustomer: "João Vitor ",
+            comment: "Baum demais esse serviço, ficou top!",
+            rating: 5,
             startDate: 1634342973000,
             endDate: null,
-            isDone: false,
+            isDone: true,
         },
         {
-            idProvider: idProvider1,
+            idProvider: idProvider2,
             idCustomer: idCustomer1,
-            nameCustomer: providers[1].name,
+            nameCustomer: "Carlos Felicio",
             comment: "Muito bom",
             rating: 5,
             startDate: 1629850173000,
@@ -207,9 +207,9 @@ const populateDatabase = async () => {
             isDone: true,
         },
         {
-            idProvider: idProvider1,
+            idProvider: idProvider2,
             idCustomer: idCustomer2,
-            nameCustomer: providers[1].name,
+            nameCustomer: "Gustavo Bueno",
             comment: "Serviço ficou mais ou menos",
             rating: 3,
             startDate: 1620691773000,
@@ -217,9 +217,9 @@ const populateDatabase = async () => {
             isDone: true,
         },
         {
-            idProvider: idProvider1,
+            idProvider: idProvider2,
             idCustomer: idCustomer2,
-            nameCustomer: providers[1].name,
+            nameCustomer: "Renato Pereira",
             comment: "Gostei muito",
             rating: 4,
             startDate: 1620691773000,
@@ -227,9 +227,9 @@ const populateDatabase = async () => {
             isDone: true,
         },
         {
-            idProvider: idProvider1,
+            idProvider: idProvider2,
             idCustomer: idCustomer2,
-            nameCustomer: providers[1].name,
+            nameCustomer: "Nathan Cardoso",
             comment: "O acabamento deixou a desejar",
             rating: 2,
             startDate: 1620691773000,
@@ -237,9 +237,9 @@ const populateDatabase = async () => {
             isDone: true,
         },
         {
-            idProvider: idProvider1,
+            idProvider: idProvider2,
             idCustomer: idCustomer2,
-            nameCustomer: providers[1].name,
+            nameCustomer: "Anderson Ferreira",
             comment: "Ótimo",
             rating: 5,
             startDate: 1620691773000,
@@ -247,9 +247,9 @@ const populateDatabase = async () => {
             isDone: true,
         },
         {
-            idProvider: idProvider1,
+            idProvider: idProvider2,
             idCustomer: idCustomer2,
-            nameCustomer: providers[1].name,
+            nameCustomer: "Pablo Laurette",
             comment: "Adorei",
             rating: 5,
             startDate: 1620691773000,
@@ -260,9 +260,9 @@ const populateDatabase = async () => {
 
     const login = [
         {
-            userId: idProvider1,
-            username: "c.veloso",
-            password: "123",
+            userId: idProvider8,
+            username: "b.rodrigues",
+            password: "teste123!",
             isProvider: true,
         },
         {
